@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — Euphoria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .text-brand { color: #3C4242; }
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8A33FD;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(138, 51, 253, 0.3);
+            animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+            font-weight: 500;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="border-b sticky top-0 bg-white z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center text-sm md:text-base">
+        
+        <div class="flex items-center space-x-14"> 
+            <div class="text-3xl font-black tracking-tighter text-black italic">Euphoria</div>
+            <nav class="hidden md:flex space-x-6 font-semibold text-gray-500">
+                <a href="index.html" class="hover:text-black">Магазин</a>
+                <a href="men.html" class="hover:text-black">Мужское</a>
+                <a href="women.html" class="hover:text-black">Женское</a>
+                <a href="sets.html" class="hover:text-black">Наборы</a>
+                <a href="new.html" class="hover:text-black">Новости</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4 ml-auto">
+            <div class="flex space-x-4 text-xl">
+                <a href="wishlist.html" class="hover:scale-110 transition">♡</a>
+                <a href="profile.html" class="hover:scale-110 transition">👤</a>
+                <a href="cart.html" class="hover:scale-110 transition">🛒</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <section class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+     
+                <div class="md:w-1/2 p-8 md:p-12 lg:p-16">
+                    <h1 class="text-3xl md:text-4xl font-bold text-brand mb-3">Добро пожаловать!</h1>
+                    <p class="text-gray-500 mb-8">Войдите в свой аккаунт, чтобы продолжить</p>
+
+                    <form id="loginForm" class="space-y-6">
+                    
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" placeholder="your@email.com" 
+                                   class="w-full bg-gray-100 border-none rounded-lg py-3 px-4 outline-none focus:ring-2 focus:ring-[#8A33FD] transition">
+                            <div class="text-red-500 text-sm mt-1 hidden" id="emailError">Введите корректный email</div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Пароль</label>
+                            <div class="relative">
+                                <input type="password" id="password" placeholder="••••••••" 
+                                       class="w-full bg-gray-100 border-none rounded-lg py-3 px-4 outline-none focus:ring-2 focus:ring-[#8A33FD] transition pr-12">
+                                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#8A33FD] transition" onclick="togglePassword()">
+                                    <i class="far fa-eye" id="toggleIcon"></i>
+                                </button>
+                            </div>
+                            <div class="text-red-500 text-sm mt-1 hidden" id="passwordError">Пароль должен содержать минимум 6 символов</div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center justify-between gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="rounded text-[#8A33FD] focus:ring-[#8A33FD]" checked>
+                                <span class="text-sm text-gray-600">Запомнить меня</span>
+                            </label>
+                            <a href="#" class="text-sm text-[#8A33FD] hover:underline" id="forgotPassword">Забыли пароль?</a>
+                        </div>
+
+                        <button type="submit" class="w-full bg-[#8A33FD] text-white py-3 rounded-lg font-bold hover:bg-[#6f2fc7] transition shadow-lg">
+                            Войти
+                        </button>
+
+                        <div class="flex items-center gap-4 text-gray-400">
+                            <hr class="flex-1 border-gray-200">
+                            <span class="text-sm">или войдите через</span>
+                            <hr class="flex-1 border-gray-200">
+                        </div>
+
+                        <div class="flex justify-center gap-4">
+                            <button type="button" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#8A33FD] hover:text-white transition social-btn">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#8A33FD] hover:text-white transition social-btn">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button type="button" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#8A33FD] hover:text-white transition social-btn">
+                                <i class="fab fa-vk"></i>
+                            </button>
+                            <button type="button" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-[#8A33FD] hover:text-white transition social-btn">
+                                <i class="fab fa-apple"></i>
+                            </button>
+                        </div>
+
+                        <p class="text-center text-gray-500 text-sm">
+                            Нет аккаунта?
+                            <a href="register.html" class="text-[#8A33FD] font-semibold hover:underline">Зарегистрироваться</a>
+                        </p>
+                    </form>
+                </div>
+
+                <div class="md:w-1/2 bg-[#f8f4ff] relative overflow-hidden hidden md:block">
+                    <img src="C:\Users\Ilfina\OneDrive\Desktop\462\УП 03 (2026)\картинки\Снимок экрана 2026-03-17 222823-Picsart-AiImageEnhancer.png" 
+                         alt="Мода" class="w-full h-full object-cover object-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#8A33FD]/20 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#18181b] text-white py-16 relative overflow-hidden" style="background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 30px 30px;">
+   
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+    
+    <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 relative z-10">
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Помощь</h4>
+            <ul class="text-gray-400 space-y-3 text-sm">
+                <li><a href="contacts.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Контакты</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Компания</h4>
+            <ul class="text-gray-400 space-y-3 text-sm">
+                <li><a href="about.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">О нас</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Инфо</h4>
+            <ul class="text-gray-400 space-y-3 text-sm">
+                <li><a href="terms.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Условия пользования</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Контакты</h4>
+            <p class="text-gray-400 text-sm mb-3 italic underline decoration-purple-500/30">support@euphoria.ru</p>
+            <p class="text-gray-400 text-sm leading-relaxed">Москва, ул. Пушкина, дом 10, офис 404</p>
+            <div class="mt-8 flex space-x-4">
+                <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">VK</span>
+                <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">IG</span>
+                <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-sky-500 hover:to-sky-300 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">TG</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 mt-16 pt-6 border-t border-zinc-800/50 text-center">
+        <p class="text-gray-600 text-xs tracking-[0.3em] uppercase bg-zinc-900/50 py-2 px-4 inline-block rounded-full backdrop-blur-sm">Copyright © 2024 Euphoria Clothing. Все права защищены.</p>
+    </div>
+</footer>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const icon = document.getElementById('toggleIcon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+
+            let isValid = true;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                email.classList.add('border-red-500', 'border-2');
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                email.classList.remove('border-red-500', 'border-2');
+                emailError.classList.add('hidden');
+            }
+
+            if (password.value.length < 6) {
+                password.classList.add('border-red-500', 'border-2');
+                passwordError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                password.classList.remove('border-red-500', 'border-2');
+                passwordError.classList.add('hidden');
+            }
+
+            if (isValid) {
+                localStorage.setItem('isLoggedIn', 'true');
+                showNotification('Вход выполнен успешно!');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            }
+        });
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showNotification('Функция входа через соцсети будет доступна позже');
+            });
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', (e) => {
+            e.preventDefault();
+            showNotification('Инструкция по восстановлению отправлена на email');
+        });
+
+        document.querySelector('.search-btn')?.addEventListener('click', () => {
+            showNotification('🔍 Поиск');
+        });
+    </script>
+</body>
+</html>

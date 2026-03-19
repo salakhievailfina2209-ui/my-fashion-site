@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль — Euphoria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .text-brand { color: #3C4242; }
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8A33FD;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(138, 51, 253, 0.3);
+            animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+            font-weight: 500;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        #avatarUpload { display: none; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="border-b sticky top-0 bg-white z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center text-sm md:text-base">
+        
+        <div class="flex items-center space-x-14"> 
+            <div class="text-3xl font-black tracking-tighter text-black italic">Euphoria</div>
+            <nav class="hidden md:flex space-x-6 font-semibold text-gray-500">
+                <a href="index.html" class="hover:text-black">Магазин</a>
+                <a href="men.html" class="hover:text-black">Мужское</a>
+                <a href="women.html" class="hover:text-black">Женское</a>
+                <a href="sets.html" class="hover:text-black">Наборы</a>
+                <a href="new.html" class="hover:text-black">Новости</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4 ml-auto">
+            <div class="flex space-x-4 text-xl">
+                <a href="wishlist.html" class="hover:scale-110 transition">♡</a>
+                <a href="profile.html" class="hover:scale-110 transition">👤</a>
+                <a href="cart.html" class="hover:scale-110 transition">🛒</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="profileContent" class="min-h-[60vh] flex items-center justify-center py-12"></div>
+
+    <footer class="bg-[#18181b] text-white py-16 relative overflow-hidden" style="background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 30px 30px;">
+   
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+    
+    <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 relative z-10">
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Помощь</h4>
+            <ul class="text-gray-400 space-y-3 text-sm">
+                <li><a href="contacts.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Контакты</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Компания</h4>
+            <ul class="text-gray-400 space-y-3 text-sm">
+                <li><a href="about.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">О нас</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Инфо</h4>
+            <ul class="text-gray-400 space-y-3 text-sm">
+                <li><a href="terms.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Условия пользования</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Контакты</h4>
+            <p class="text-gray-400 text-sm mb-3 italic underline decoration-purple-500/30">support@euphoria.ru</p>
+            <p class="text-gray-400 text-sm leading-relaxed">Москва, ул. Пушкина, дом 10, офис 404</p>
+            <div class="mt-8 flex space-x-4">
+                <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">VK</span>
+                <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">IG</span>
+                <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-sky-500 hover:to-sky-300 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">TG</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 mt-16 pt-6 border-t border-zinc-800/50 text-center">
+        <p class="text-gray-600 text-xs tracking-[0.3em] uppercase bg-zinc-900/50 py-2 px-4 inline-block rounded-full backdrop-blur-sm">Copyright © 2024 Euphoria Clothing. Все права защищены.</p>
+    </div>
+</footer>
+
+    <script>
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const profileContainer = document.getElementById('profileContent');
+
+        if (!isLoggedIn) {
+            profileContainer.innerHTML = `
+                <div class="max-w-md mx-auto bg-white rounded-3xl shadow-xl p-10 text-center">
+                    <div class="text-7xl text-[#8A33FD] mb-6">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-brand mb-3">Войдите в профиль</h2>
+                    <p class="text-gray-500 mb-8">Чтобы увидеть свой профиль, пожалуйста, авторизуйтесь</p>
+                    <a href="login.html" class="inline-block bg-[#8A33FD] text-white px-10 py-4 rounded-lg font-bold hover:bg-[#6f2fc7] transition shadow-lg">Войти</a>
+                    <p class="text-gray-500 text-sm mt-6">
+                        Нет аккаунта?
+                        <a href="register.html" class="text-[#8A33FD] font-semibold hover:underline">Зарегистрироваться</a>
+                    </p>
+                </div>
+            `;
+        } else {
+            const userNickname = localStorage.getItem('userNickname') || '@username';
+            const userName = localStorage.getItem('userName') || 'Пользователь';
+            const userEmail = localStorage.getItem('userEmail') || 'email@example.com';
+            const savedAvatar = localStorage.getItem('userAvatar') || 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+
+                profileContainer.innerHTML = `
+                 <div class="w-full max-w-2xl md:max-w-2xl lg:max-w-2xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-[#2A2F2F] to-[#1a1f1f] p-8 text-center relative">
+                        <div class="relative w-32 h-32 mx-auto mb-4">
+                            <img id="profileImage" src="${savedAvatar}" alt="Аватар" class="w-full h-full rounded-full object-cover border-4 border-[#8A33FD]">
+                            <label for="avatarUpload" class="absolute bottom-1 right-1 w-9 h-9 bg-[#8A33FD] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#6f2fc7] transition shadow-lg">
+                                <i class="fas fa-camera text-white text-sm"></i>
+                                <input type="file" id="avatarUpload" accept="image/*">
+                            </label>
+                        </div>
+                        <h1 class="text-3xl font-bold text-white">${userName}</h1>
+                        <p class="text-[#8A33FD] mt-1">${userNickname}</p>
+                    </div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
+                            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#8A33FD]">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Имя</p>
+                                <p class="font-semibold text-gray-800">${userName}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
+                            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#8A33FD]">
+                                <i class="fas fa-at"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Никнейм</p>
+                                <p class="font-semibold text-gray-800">${userNickname}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
+                            <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#8A33FD]">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs text-gray-400 uppercase tracking-wider">Email</p>
+                                <p class="font-semibold text-gray-800">${userEmail}</p>
+                            </div>
+                        </div>
+                        <button onclick="logout()" class="w-full bg-red-500 text-white py-3 rounded-lg font-bold hover:bg-red-600 transition flex items-center justify-center gap-2">
+                            <i class="fas fa-sign-out-alt"></i> Выйти
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('avatarUpload').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(ev) {
+                        const imageData = ev.target.result;
+                        document.getElementById('profileImage').src = imageData;
+                        localStorage.setItem('userAvatar', imageData);
+                        showNotification('Фото профиля обновлено');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        window.logout = function() {
+            localStorage.removeItem('isLoggedIn');
+            showNotification('Вы вышли из аккаунта');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        };
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        
+        const searchBtn = document.querySelector('.search-btn');
+        if (searchBtn) {
+            searchBtn.addEventListener('click', () => showNotification('🔍 Поиск'));
+        }
+    </script>
+</body>
+</html>

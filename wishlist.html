@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Избранное — Euphoria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .text-brand { color: #3C4242; }
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8A33FD;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(138, 51, 253, 0.3);
+            animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+            font-weight: 500;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="border-b sticky top-0 bg-white z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center text-sm md:text-base">
+        
+        <div class="flex items-center space-x-14"> 
+            <div class="text-3xl font-black tracking-tighter text-black italic">Euphoria</div>
+            <nav class="hidden md:flex space-x-6 font-semibold text-gray-500">
+                <a href="index.html" class="hover:text-black">Магазин</a>
+                <a href="men.html" class="hover:text-black">Мужское</a>
+                <a href="women.html" class="hover:text-black">Женское</a>
+                <a href="sets.html" class="hover:text-black">Наборы</a>
+                <a href="new.html" class="hover:text-black">Новости</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4 ml-auto">
+            <div class="flex space-x-4 text-xl">
+                <a href="wishlist.html" class="hover:scale-110 transition">♡</a>
+                <a href="profile.html" class="hover:scale-110 transition">👤</a>
+                <a href="cart.html" class="hover:scale-110 transition">🛒</a>
+            </div>
+        </div>
+    </div>
+</header>
+    <section class="bg-[#2A2F2F] text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Избранное</h1>
+            <p id="wishlistHeaderText" class="text-gray-300">Товары, которые вам понравились</p>
+        </div>
+    </section>
+
+    <section class="py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div id="wishlistContainer"></div>
+        </div>
+    </section>
+
+    <footer class="bg-[#18181b] text-white py-16 relative overflow-hidden" style="background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 30px 30px;">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 relative z-10">
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Помощь</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="contacts.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Компания</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="about.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">О нас</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Инфо</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="terms.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Условия пользования</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Контакты</h4>
+                <p class="text-gray-400 text-sm mb-3 italic underline decoration-purple-500/30">support@euphoria.ru</p>
+                <p class="text-gray-400 text-sm leading-relaxed">Москва, ул. Пушкина, дом 10, офис 404</p>
+                <div class="mt-8 flex space-x-4">
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">VK</span>
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">IG</span>
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-sky-500 hover:to-sky-300 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">TG</span>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-16 pt-6 border-t border-zinc-800/50 text-center">
+            <p class="text-gray-600 text-xs tracking-[0.3em] uppercase bg-zinc-900/50 py-2 px-4 inline-block rounded-full backdrop-blur-sm">Copyright © 2024 Euphoria Clothing. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        const WISHLIST_KEY = 'wishlist';
+        const CART_KEY = 'cart';
+        const LOGGED_IN_KEY = 'isLoggedIn';
+
+        function isAuthenticated() {
+            return localStorage.getItem(LOGGED_IN_KEY) === 'true';
+        }
+
+        if (!isAuthenticated()) {
+            document.getElementById('wishlistContainer').innerHTML = `
+                <div class="text-center py-16 bg-white rounded-3xl shadow-xl">
+                    <i class="fas fa-lock text-7xl text-[#8A33FD] mb-6"></i>
+                    <h2 class="text-3xl font-bold text-brand mb-3">Доступ ограничен</h2>
+                    <p class="text-gray-500 mb-8">Чтобы просмотреть избранное, войдите в аккаунт</p>
+                    <a href="login.html" class="inline-block bg-[#8A33FD] text-white px-10 py-4 rounded-lg font-bold hover:bg-[#6f2fc7] transition shadow-lg">Войти</a>
+                </div>
+            `;
+            document.getElementById('wishlistHeaderText').textContent = 'Требуется авторизация';
+        } else {
+            let wishlist = JSON.parse(localStorage.getItem(WISHLIST_KEY)) || [];
+            let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+
+            function saveWishlist() {
+                localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+            }
+
+            function saveCart() {
+                localStorage.setItem(CART_KEY, JSON.stringify(cart));
+            }
+
+            function renderWishlist() {
+                const container = document.getElementById('wishlistContainer');
+                const headerText = document.getElementById('wishlistHeaderText');
+
+                if (wishlist.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-16 bg-white rounded-3xl shadow-xl">
+                            <i class="far fa-heart text-7xl text-[#8A33FD] mb-6"></i>
+                            <h2 class="text-3xl font-bold text-brand mb-3">Список избранного пуст</h2>
+                            <p class="text-gray-500 mb-8">Добавляйте понравившиеся товары в избранное</p>
+                            <a href="index.html" class="inline-block bg-[#8A33FD] text-white px-10 py-4 rounded-lg font-bold hover:bg-[#6f2fc7] transition shadow-lg">Перейти к покупкам</a>
+                        </div>
+                    `;
+                    headerText.textContent = 'Добавьте товары в избранное';
+                    return;
+                }
+
+                headerText.textContent = `Товаров: ${wishlist.length}`;
+
+                let itemsHtml = '';
+                wishlist.forEach((item, index) => {
+                    itemsHtml += `
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+                            <div class="relative pb-[125%]">
+                                <img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-1 truncate">${item.title}</h3>
+                                <p class="text-gray-500 text-sm mb-2">${item.category || 'Одежда'}</p>
+                                <div class="text-[#8A33FD] font-bold text-xl mb-3">${item.price.toLocaleString()} ₽</div>
+                                <div class="flex gap-2">
+                                    <button onclick="addToCart(${index})" class="flex-1 bg-[#8A33FD] text-white py-2 rounded-lg font-medium hover:bg-[#6f2fc7] transition text-sm">
+                                        В корзину
+                                    </button>
+                                    <button onclick="removeFromWishlist(${index})" class="w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center text-red-500 hover:bg-red-50 transition">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        ${itemsHtml}
+                    </div>
+                `;
+            }
+
+            window.removeFromWishlist = function(index) {
+                const removed = wishlist[index];
+                wishlist.splice(index, 1);
+                saveWishlist();
+                renderWishlist();
+                showNotification(`Товар "${removed.title}" удалён из избранного`);
+            };
+
+            window.addToCart = function(index) {
+                const product = wishlist[index];
+                if (!product) return;
+
+                const existingIndex = cart.findIndex(item => item.id === product.id);
+                if (existingIndex !== -1) {
+                    cart[existingIndex].quantity += 1;
+                    showNotification(`Количество товара "${product.title}" увеличено в корзине`);
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                    showNotification(`Товар "${product.title}" добавлен в корзину`);
+                }
+                saveCart();
+            };
+
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            }
+
+            renderWishlist();
+        }
+    </script>
+</body>
+</html>

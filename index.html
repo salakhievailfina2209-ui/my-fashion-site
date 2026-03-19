@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euphoria — Магазин одежды</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg { background-color: #00AEEF; }
+        .text-brand { color: #3C4242; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="border-b sticky top-0 bg-white z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center text-sm md:text-base">
+        
+        <div class="flex items-center space-x-14"> 
+            <div class="text-3xl font-black tracking-tighter text-black italic">Euphoria</div>
+            <nav class="hidden md:flex space-x-6 font-semibold text-gray-500">
+                <a href="index.html" class="hover:text-black">Магазин</a>
+                <a href="men.html" class="hover:text-black">Мужское</a>
+                <a href="women.html" class="hover:text-black">Женское</a>
+                <a href="sets.html" class="hover:text-black">Наборы</a>
+                <a href="new.html" class="hover:text-black">Новости</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4 ml-auto">
+            <div class="flex space-x-4 text-xl">
+                <a href="wishlist.html" class="hover:scale-110 transition">♡</a>
+                <a href="profile.html" class="hover:scale-110 transition">👤</a>
+                <a href="cart.html" class="hover:scale-110 transition">🛒</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <section class="hero-bg relative h-[400px] md:h-[595px] flex items-center overflow-hidden">
+        <div class="container mx-auto px-6 z-10 text-white">
+            <p class="text-lg md:text-2xl font-medium mb-2">Футболки / Топы</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">Летний<br>набор выгоды</h1>
+            <p class="text-md md:text-xl mb-8 uppercase tracking-[0.2em] font-light">Круто / Ярко / Удобно</p>
+            <a href="women.html" class="bg-white text-black px-10 py-4 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg">Купить сейчас</a>
+        </div>
+        <div class="absolute right-0 bottom-0 h-full w-full md:w-1/2 bg-cover bg-top">
+             <img src="C:\Users\Ilfina\OneDrive\Desktop\462\УП 03 (2026)\картинки\image-Photoroom_imgupscaler.ai_Бета_2K-Photoroom.png">
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-12 grid md:grid-cols-2 gap-8">
+        <div class="rounded-2xl p-10 text-white flex flex-col justify-center h-80 relative overflow-hidden bg-[#F8B62D]">
+            <div class="z-10">
+                <h3 class="text-xl font-bold mb-1">Низкая цена</h3>
+                <h2 class="text-4xl font-black mb-4 uppercase">Высокое качество</h2>
+                <a href="#" class="underline font-bold text-lg">КУПИТЬ</a>
+            </div>
+            <img src="C:\Users\Ilfina\OneDrive\Desktop\462\УП 03 (2026)\картинки\acetone-2026314-104355-836.png" class="absolute right-0 bottom-0 w-1/2 h-full object-cover">
+        </div>
+        <div class="rounded-2xl p-10 text-white flex flex-col justify-center h-80 relative overflow-hidden bg-[#8E44AD]">
+            <div class="z-10">
+                <h3 class="text-xl font-bold mb-1">Beyoung</h3>
+                <h2 class="text-4xl font-black mb-4 uppercase text-white">Летний стиль</h2>
+                <a href="#" class="underline font-bold text-lg">КУПИТЬ</a>
+            </div>
+            <img src="C:\Users\Ilfina\OneDrive\Desktop\462\УП 03 (2026)\картинки\acetone-2026314-10462-920.png" class="absolute right-0 bottom-0 w-1/2 h-full object-cover">
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-10">
+        <div class="flex items-center mb-10">
+            <div class="w-1.5 h-8 bg-[#8A33FD] rounded-full mr-4"></div>
+            <h2 class="text-3xl font-bold text-brand">Новинки</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4]">
+                    <img src="https://i.pinimg.com/736x/69/4b/36/694b367ff5fae0aefccf6f9b3c38980f.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <h4 class="font-bold text-lg">Вязаные джоггеры</h4>
+            </div>
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4]">
+                    <img src="https://i.pinimg.com/1200x/1e/c3/07/1ec3077cf5472febc467833d4c1caa9f.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <h4 class="font-bold text-lg">Рубашка Slim Fit</h4>
+            </div>
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4]">
+                    <img src="https://i.pinimg.com/736x/17/94/20/1794204fac8ac248eaf88c1b9683da49.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <h4 class="font-bold text-lg">Спортивный топ</h4>
+            </div>
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4]">
+                    <img src="https://i.pinimg.com/736x/e4/c8/c7/e4c8c794a8a61cd753e34ac4e96b96db.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <h4 class="font-bold text-lg">Урбан стиль</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-10">
+        <div class="flex items-center mb-10">
+            <div class="w-1.5 h-8 bg-[#8A33FD] rounded-full mr-4"></div>
+            <h2 class="text-3xl font-bold text-brand">Зона большой экономии</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="bg-gray-100 rounded-xl relative flex items-center p-8 overflow-hidden h-72">
+                <div class="z-10 w-1/2">
+                    <h3 class="text-xl font-bold">Гавайские рубашки</h3>
+                    <p class="text-xs mb-4">Скидки до 50%</p>
+                    <button class="border-2 border-black px-4 py-1 text-sm font-bold rounded">КУПИТЬ</button>
+                </div>
+                <img src="https://i.pinimg.com/1200x/ed/c9/ed/edc9ed3381c30095bcae58905c6e1f10.jpg" class="absolute right-0 h-full w-1/2 object-cover">
+            </div>
+            <div class="bg-blue-50 rounded-xl relative flex items-center p-8 overflow-hidden h-72">
+                <div class="z-10 w-1/2">
+                    <h3 class="text-xl font-bold">Принты</h3>
+                    <p class="text-xs mb-4">Новая коллекция</p>
+                    <button class="border-2 border-black px-4 py-1 text-sm font-bold rounded">КУПИТЬ</button>
+                </div>
+                <img src="https://i.pinimg.com/1200x/32/99/8d/32998d124e88af575485da9bb38c3979.jpg" class="absolute right-0 h-full w-1/2 object-cover">
+            </div>
+            <div class="bg-pink-50 rounded-xl relative flex items-center p-8 overflow-hidden h-72">
+                <div class="z-10 w-1/2">
+                    <h3 class="text-xl font-bold">Брюки карго</h3>
+                    <p class="text-xs mb-4">Все размеры</p>
+                    <button class="border-2 border-black px-4 py-1 text-sm font-bold rounded">КУПИТЬ</button>
+                </div>
+                <img src="https://i.pinimg.com/1200x/24/45/5c/24455cb04cc901728c7d05b092e1ec19.jpg" class="absolute right-0 h-full w-1/2 object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-14 bg-[#3C4242] rounded-3xl my-16 text-white text-center">
+        <h2 class="text-4xl font-black mb-4 italic">Предложения Топ-Брендов</h2>
+        <p class="text-gray-300 mb-10 text-lg">Скидки до <span class="text-yellow-400 font-bold">60%</span> на все известные марки</p>
+        <div class="flex flex-wrap justify-center gap-10 items-center opacity-80">
+            <span class="text-4xl font-black tracking-tighter">NIKE</span>
+            <span class="text-4xl font-serif italic">H&M</span>
+            <span class="text-4xl font-bold underline">LEVI'S</span>
+            <span class="text-4xl font-black uppercase italic">Puma</span>
+            <span class="text-4xl font-sans font-bold">ADIDAS</span>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-10">
+        <div class="flex items-center mb-10">
+            <div class="w-1.5 h-8 bg-[#8A33FD] rounded-full mr-4"></div>
+            <h2 class="text-3xl font-bold text-brand">Хиты продаж</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4] bg-gray-100">
+                    <img src="https://i.pinimg.com/736x/1e/30/3e/1e303ee23fb45f350ff94e1478e6b639.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Хит">
+                </div>
+                <h4 class="font-bold text-lg">Оверсайз худи</h4>
+                <p class="text-gray-500">2 990 ₽</p>
+            </div>
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4] bg-gray-100">
+                    <img src="https://i.pinimg.com/736x/30/e2/d2/30e2d26b43ecf3f87aafa5f9e12e909c.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Хит">
+                </div>
+                <h4 class="font-bold text-lg">Джинсы прямые</h4>
+                <p class="text-gray-500">3 490 ₽</p>
+            </div>
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4] bg-gray-100">
+                    <img src="https://i.pinimg.com/736x/49/35/c2/4935c20faba7dfa0c5df21f5614ea89a.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Хит">
+                </div>
+                <h4 class="font-bold text-lg">Футболка с принтом</h4>
+                <p class="text-gray-500">1 290 ₽</p>
+            </div>
+            <div class="group">
+                <div class="rounded-xl overflow-hidden mb-4 aspect-[3/4] bg-gray-100">
+                    <img src="https://i.pinimg.com/736x/22/c5/7b/22c57b231bfe81ec1802624fe152f7bb.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Хит">
+                </div>
+                <h4 class="font-bold text-lg">Кожаная куртка</h4>
+                <p class="text-gray-500">12 990 ₽</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-16 bg-gray-50 rounded-3xl my-8">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-black text-brand">Почему выбирают нас</h2>
+            <p class="text-gray-500 mt-2">4 причины любить Euphoria</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="w-20 h-20 bg-[#8A33FD] rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">🚚</div>
+                <h3 class="font-bold text-xl mb-2">Бесплатная доставка</h3>
+                <p class="text-gray-500">При заказе от 5 000 ₽</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-[#8A33FD] rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">↩️</div>
+                <h3 class="font-bold text-xl mb-2">Лёгкий возврат</h3>
+                <p class="text-gray-500">В течение 14 дней</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-[#8A33FD] rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">🔒</div>
+                <h3 class="font-bold text-xl mb-2">Безопасная оплата</h3>
+                <p class="text-gray-500">Шифрование данных</p>
+            </div>
+            <div class="text-center">
+                <div class="w-20 h-20 bg-[#8A33FD] rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">💬</div>
+                <h3 class="font-bold text-xl mb-2">Поддержка 24/7</h3>
+                <p class="text-gray-500">Чат и телефон</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 py-12">
+        <div class="flex items-center mb-10">
+            <div class="w-1.5 h-8 bg-[#8A33FD] rounded-full mr-4"></div>
+            <h2 class="text-3xl font-bold text-brand">Полезные статьи</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="border rounded-2xl overflow-hidden shadow-sm">
+                <img src="https://i.pinimg.com/736x/44/6d/7c/446d7cdc28e327f4560cec2f85500d4c.jpg" class="h-60 w-full object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-xl mb-2">Как подобрать джинсы по фигуре</h3>
+                    <p class="text-gray-500 text-sm">5 советов от стилистов</p>
+                    <a href="#" class="inline-block mt-4 text-[#8A33FD] font-semibold">Читать →</a>
+                </div>
+            </div>
+            <div class="border rounded-2xl overflow-hidden shadow-sm">
+                <img src="https://stockmann.ru/istk/gkfCGMcc7wfO-1Cp0CjFJY4wLw80wl8hrjmFglQkZjc/rs:fill:747::1/g:no/bG9jYWw6Ly8vdXBsb2FkLy9jbXMvc3RhdGljL2Zhc2hpb24tYmxvZy9hcnRpY2xlLzY2Mjc1NjIyMGE1Zjc4MGY4NjA3ZmNmMS9ibG9jay82NjI3NTdmYzk3OGQ1OTEwOTUwNDQzYjQvVzdnektGaW5JVGo0akxLV0FuMUJZS0wzUFJZaFk3OWVOT2U4YzR2Zi5qcGc.jpg" class="h-60 w-full object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-xl mb-2">Тренды лета 2025</h3>
+                    <p class="text-gray-500 text-sm">Что будет в моде</p>
+                    <a href="#" class="inline-block mt-4 text-[#8A33FD] font-semibold">Читать →</a>
+                </div>
+            </div>
+            <div class="border rounded-2xl overflow-hidden shadow-sm">
+                <img src="https://i.pinimg.com/1200x/f1/fb/cb/f1fbcbd95c87b4a4bcc59ceda86d2038.jpg" class="h-60 w-full object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-xl mb-2">Уход за тканями</h3>
+                    <p class="text-gray-500 text-sm">Продлеваем жизнь вещам</p>
+                    <a href="#" class="inline-block mt-4 text-[#8A33FD] font-semibold">Читать →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   <section class="container mx-auto px-6 py-12 mb-12">
+    <div class="flex items-center mb-10">
+        <div class="w-1.5 h-8 bg-[#8A33FD] rounded-full mr-4"></div>
+        <h2 class="text-3xl font-bold text-brand">Отзывы</h2><br>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="border p-8 rounded-2xl shadow-sm">
+            <div class="flex space-x-1 text-yellow-400 mb-4">★★★★★</div>
+            <h4 class="font-bold text-lg mb-2">Екатерина М.</h4>
+            <p class="text-gray-500 text-sm italic">"Очень быстрая доставка, качество супер! Буду заказывать ещё."</p>
+            <p class="text-gray-400 text-xs mt-3">17 марта 2026</p> 
+        </div>
+        <div class="border p-8 rounded-2xl shadow-sm">
+            <div class="flex space-x-1 text-yellow-400 mb-4">★★★★★</div>
+            <h4 class="font-bold text-lg mb-2">Дмитрий К.</h4>
+            <p class="text-gray-500 text-sm italic">"Отличное соотношение цены и качества. Вещи сидят идеально."</p>
+            <p class="text-gray-400 text-xs mt-3">16 марта 2026</p>
+        </div>
+        <div class="border p-8 rounded-2xl shadow-sm">
+            <div class="flex space-x-1 text-yellow-400 mb-4">★★★★★</div>
+            <h4 class="font-bold text-lg mb-2">Алина Р.</h4>
+            <p class="text-gray-500 text-sm italic">"Спасибо за подарок к заказу! Приятный бонус."</p>
+            <p class="text-gray-400 text-xs mt-3">15 марта 2026</p>
+        </div>
+    </div>
+</section>
+
+    <footer class="bg-[#18181b] text-white py-16 relative overflow-hidden" style="background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 30px 30px;">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 relative z-10">
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Помощь</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="contacts.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Компания</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="about.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">О нас</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Инфо</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="terms.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Условия пользования</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Контакты</h4>
+                <p class="text-gray-400 text-sm mb-3 italic underline decoration-purple-500/30">support@euphoria.ru</p>
+                <p class="text-gray-400 text-sm leading-relaxed">Москва, ул. Пушкина, дом 10, офис 404</p>
+                <div class="mt-8 flex space-x-4">
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">VK</span>
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">IG</span>
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-sky-500 hover:to-sky-300 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">TG</span>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-16 pt-6 border-t border-zinc-800/50 text-center">
+            <p class="text-gray-600 text-xs tracking-[0.3em] uppercase bg-zinc-900/50 py-2 px-4 inline-block rounded-full backdrop-blur-sm">Copyright © 2024 Euphoria Clothing. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

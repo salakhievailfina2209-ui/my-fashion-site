@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Женская одежда — Euphoria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .text-brand { color: #3C4242; }
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8A33FD;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(138, 51, 253, 0.3);
+            animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3000;
+            font-weight: 500;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .product-card {
+            transition: all 0.2s;
+        }
+        .product-card.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="border-b sticky top-0 bg-white z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center text-sm md:text-base">
+        
+        <div class="flex items-center space-x-14"> 
+            <div class="text-3xl font-black tracking-tighter text-black italic">Euphoria</div>
+            <nav class="hidden md:flex space-x-6 font-semibold text-gray-500">
+                <a href="index.html" class="hover:text-black">Магазин</a>
+                <a href="men.html" class="hover:text-black">Мужское</a>
+                <a href="women.html" class="hover:text-black">Женское</a>
+                <a href="sets.html" class="hover:text-black">Наборы</a>
+                <a href="new.html" class="hover:text-black">Новости</a>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4 ml-auto">
+            <div class="flex space-x-4 text-xl">
+                <a href="wishlist.html" class="hover:scale-110 transition">♡</a>
+                <a href="profile.html" class="hover:scale-110 transition">👤</a>
+                <a href="cart.html" class="hover:scale-110 transition">🛒</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <section class="container mx-auto px-4 py-10">
+        <div class="flex items-center mb-6">
+            <div class="w-1.5 h-8 bg-[#8A33FD] rounded-full mr-4"></div>
+            <h1 class="text-3xl font-bold text-brand">Женская одежда</h1>
+        </div>
+        <p class="text-gray-500 text-lg">Стильные и элегантные наряды для женщин</p>
+    </section>
+
+    <section class="container mx-auto px-4 pb-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="flex flex-wrap gap-3">
+                <select id="quickCategory" class="bg-gray-100 border-none rounded-md py-2 px-4 text-sm outline-none">
+                    <option value="">Все категории</option>
+                    <option value="Платья">Платья</option>
+                    <option value="Блузы">Блузы</option>
+                    <option value="Джинсы">Джинсы</option>
+                    <option value="Юбки">Юбки</option>
+                    <option value="Верхняя одежда">Верхняя одежда</option>
+                    <option value="Спортивная одежда">Спортивная одежда</option>
+                    <option value="Топы">Топы</option>
+                    <option value="Костюмы">Костюмы</option>
+                </select>
+                <select id="quickSize" class="bg-gray-100 border-none rounded-md py-2 px-4 text-sm outline-none">
+                    <option value="">Все размеры</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+                <select id="quickColor" class="bg-gray-100 border-none rounded-md py-2 px-4 text-sm outline-none">
+                    <option value="">Все цвета</option>
+                    <option value="Черный">Черный</option>
+                    <option value="Белый">Белый</option>
+                    <option value="Розовый">Розовый</option>
+                    <option value="Красный">Красный</option>
+                    <option value="Синий">Синий</option>
+                    <option value="Зеленый">Зеленый</option>
+                </select>
+            </div>
+            <div class="flex gap-2">
+                <button id="sortPopular" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium">По популярности</button>
+                <button id="sortPrice" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium">По цене</button>
+                <button id="sortNew" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md text-sm font-medium">По новизне</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 pb-16">
+        <div class="flex flex-col md:flex-row gap-8">
+            <aside class="md:w-1/4 bg-gray-50 p-6 rounded-xl shadow-sm">
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg mb-3">Категории</h4>
+                    <ul class="space-y-2" id="categoryFilters">
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Платья" class="category-checkbox"> Платья</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Блузы" class="category-checkbox"> Блузы и рубашки</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Джинсы" class="category-checkbox"> Джинсы</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Юбки" class="category-checkbox"> Юбки</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Верхняя одежда" class="category-checkbox"> Верхняя одежда</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Спортивная одежда" class="category-checkbox"> Спортивная одежда</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Топы" class="category-checkbox"> Топы</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Костюмы" class="category-checkbox"> Костюмы</label></li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg mb-3">Размер</h4>
+                    <ul class="space-y-2" id="sizeFilters">
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="XS" class="size-checkbox"> XS (40-42)</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="S" class="size-checkbox"> S (42-44)</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="M" class="size-checkbox"> M (44-46)</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="L" class="size-checkbox"> L (46-48)</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="XL" class="size-checkbox"> XL (48-50)</label></li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg mb-3">Цена</h4>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="minPrice" placeholder="от 0" class="w-24 bg-white border rounded-md px-3 py-2 text-sm" value="0" min="0">
+                        <span>—</span>
+                        <input type="number" id="maxPrice" placeholder="до 50000" class="w-24 bg-white border rounded-md px-3 py-2 text-sm" value="50000" min="0">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg mb-3">Цвет</h4>
+                    <ul class="space-y-2" id="colorFilters">
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Черный" class="color-checkbox"> Черный</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Белый" class="color-checkbox"> Белый</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Розовый" class="color-checkbox"> Розовый</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Красный" class="color-checkbox"> Красный</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Синий" class="color-checkbox"> Синий</label></li>
+                        <li><label class="flex items-center gap-2 text-gray-700"><input type="checkbox" value="Зеленый" class="color-checkbox"> Зеленый</label></li>
+                    </ul>
+                </div>
+                <button id="applyFiltersBtn" class="w-full bg-[#8A33FD] text-white py-3 rounded-lg font-bold hover:bg-[#6f2fc7] transition">Применить фильтры</button>
+                <button id="resetFiltersBtn" class="w-full mt-2 border border-gray-300 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-100 transition">Сбросить</button>
+            </aside>
+
+            <div class="md:w-3/4">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="productGrid">
+                
+                    <div class="group product-card" data-id="w1" data-name="Платье миди" data-price="4590" data-category="Платья" data-size="M" data-color="Розовый" data-popularity="120" data-date="2025-03-15" data-img="https://i.pinimg.com/736x/03/0b/d2/030bd265aa1f4a2af360e9ef96178891.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/03/0b/d2/030bd265aa1f4a2af360e9ef96178891.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Платье миди">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">Хит</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Платье миди</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">4 590 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w1">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w2" data-name="Блуза шелковая" data-price="3990" data-category="Блузы" data-size="S" data-color="Белый" data-popularity="95" data-date="2025-03-20" data-img="https://i.pinimg.com/736x/2b/a8/00/2ba8007ab71950147527417efc3b43e5.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/2b/a8/00/2ba8007ab71950147527417efc3b43e5.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Новинка</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Блуза шелковая</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">3 990 ₽</span>
+                            <span class="text-gray-400 line-through text-sm mr-2">5 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w2">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w3" data-name="Джинсы Mom fit" data-price="5990" data-category="Джинсы" data-size="L" data-color="Синий" data-popularity="200" data-date="2025-03-10" data-img="https://i.pinimg.com/736x/3d/a8/db/3da8db0ed74347307f58823d96a00034.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/3d/a8/db/3da8db0ed74347307f58823d96a00034.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Джинсы Mom fit</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">5 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w3">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w4" data-name="Юбка-карандаш" data-price="3490" data-category="Юбки" data-size="M" data-color="Черный" data-popularity="70" data-date="2025-03-05" data-img="https://i.pinimg.com/1200x/d0/1f/fb/d01ffbf9e771ebcd8d382b903bb79473.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/1200x/d0/1f/fb/d01ffbf9e771ebcd8d382b903bb79473.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Юбка-карандаш</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">3 490 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w4">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w5" data-name="Костюм двойка" data-price="7990" data-category="Костюмы" data-size="M" data-color="Синий" data-popularity="60" data-date="2025-03-01" data-img="https://i.pinimg.com/736x/a9/e1/46/a9e1464e33485646638a336b7dc507c4.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/a9/e1/46/a9e1464e33485646638a336b7dc507c4.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-20%</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Костюм двойка</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">7 990 ₽</span>
+                            <span class="text-gray-400 line-through text-sm mr-2">9 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w5">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w6" data-name="Куртка кожаная" data-price="8990" data-category="Куртки" data-size="L" data-color="Черный" data-popularity="130" data-date="2025-03-18" data-img="https://i.pinimg.com/736x/35/98/dc/3598dc59090c5a044f9c498b3825f51c.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/35/98/dc/3598dc59090c5a044f9c498b3825f51c.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Новинка</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Куртка кожаная</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">8 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w6">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w7" data-name="Спортивный костюм" data-price="5490" data-category="Спортивная одежда" data-size="S" data-color="Розовый" data-popularity="85" data-date="2025-03-12" data-img="https://i.pinimg.com/1200x/43/ae/9a/43ae9a4d6256579686e79e83805fbbf8.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/1200x/43/ae/9a/43ae9a4d6256579686e79e83805fbbf8.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Спортивный костюм</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">5 490 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w7">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w8" data-name="Топ летний" data-price="1990" data-category="Топы" data-size="XS" data-color="Белый" data-popularity="40" data-date="2025-03-08" data-img="https://i.pinimg.com/736x/9e/12/47/9e12474dfabf5b752ecd6efc81cc5fa8.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/9e/12/47/9e12474dfabf5b752ecd6efc81cc5fa8.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Топ летний</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">1 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w8">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w9" data-name="Платье коктейльное" data-price="6990" data-category="Платья" data-size="M" data-color="Красный" data-popularity="150" data-date="2025-03-22" data-img="https://i.pinimg.com/1200x/3a/7c/b4/3a7cb489c82fc051d0628feba9fcc37b.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/1200x/3a/7c/b4/3a7cb489c82fc051d0628feba9fcc37b.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-pink-500 text-white text-xs font-bold px-2 py-1 rounded">Тренд</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Платье коктейльное</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">6 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w9">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w10" data-name="Блуза с цветами" data-price="3290" data-category="Блузы" data-size="L" data-color="Зеленый" data-popularity="80" data-date="2025-03-17" data-img="https://i.pinimg.com/1200x/3c/74/b4/3c74b4e0ca888e9d04a4b1830aa2d6fe.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/1200x/3c/74/b4/3c74b4e0ca888e9d04a4b1830aa2d6fe.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Блуза с цветами</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">3 290 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w10">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w11" data-name="Юбка плиссе" data-price="2990" data-category="Юбки" data-size="S" data-color="Розовый" data-popularity="110" data-date="2025-03-14" data-img="https://i.pinimg.com/1200x/dd/89/a8/dd89a83c5da592cf6a07d92645e1c86a.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/1200x/dd/89/a8/dd89a83c5da592cf6a07d92645e1c86a.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded">Хит</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Юбка плиссе</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">2 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w11">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w12" data-name="Джинсы багги" data-price="5490" data-category="Джинсы" data-size="XL" data-color="Синий" data-popularity="90" data-date="2025-03-09" data-img="https://i.pinimg.com/736x/22/c1/cd/22c1cd3250ffb7d1c14756fe8f36f89e.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/22/c1/cd/22c1cd3250ffb7d1c14756fe8f36f89e.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Джинсы багги</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">5 490 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w12">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w13" data-name="Тренч летний" data-price="7990" data-category="Верхняя одежда" data-size="M" data-color="Бежевый" data-popularity="65" data-date="2025-03-19" data-img="https://i.pinimg.com/1200x/28/55/3a/28553ace7a1b34c8aad7e5a7f025dfee.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/1200x/28/55/3a/28553ace7a1b34c8aad7e5a7f025dfee.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Новинка</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Тренч летний</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">7 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w13">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w14" data-name="Костюм с юбкой" data-price="8490" data-category="Костюмы" data-size="M" data-color="Черный" data-popularity="55" data-date="2025-03-11" data-img="https://i.pinimg.com/736x/c0/98/8b/c0988bf16c8bf1c90d1e7ed64cdc2c66.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/c0/98/8b/c0988bf16c8bf1c90d1e7ed64cdc2c66.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Костюм с юбкой</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">8 490 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w14">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w15" data-name="Платье вечернее" data-price="9990" data-category="Платья" data-size="L" data-color="Синий" data-popularity="140" data-date="2025-03-16" data-img="https://i.pinimg.com/736x/8c/b2/91/8cb291a9a4fc59b77d8968a00af1c3bd.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/736x/8c/b2/91/8cb291a9a4fc59b77d8968a00af1c3bd.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                            <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-15%</span>
+                        </div>
+                        <h4 class="font-bold text-lg">Платье вечернее</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">9 990 ₽</span>
+                            <span class="text-gray-400 line-through text-sm mr-2">11 990 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w15">В корзину</button>
+                        </div>
+                    </div>
+                    <div class="group product-card" data-id="w16" data-name="Топ с пайетками" data-price="2490" data-category="Топы" data-size="XS" data-color="Розовый" data-popularity="45" data-date="2025-03-13" data-img="https://i.pinimg.com/1200x/2e/92/e1/2e92e1d3e91e65fb980a3c855a5cb41a.jpg">
+                        <div class="rounded-xl overflow-hidden mb-3 aspect-[3/4] relative">
+                            <img src="https://i.pinimg.com/1200x/2e/92/e1/2e92e1d3e91e65fb980a3c855a5cb41a.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition wishlist-card">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-lg">Топ с пайетками</h4>
+                        <p class="text-gray-500 text-sm mb-2">Женская одежда</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-lg">2 490 ₽</span>
+                            <button class="bg-[#8A33FD] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#6f2fc7] transition add-to-cart" data-id="w16">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="noProductsMessage" class="text-center py-16 hidden">
+                    <p class="text-gray-500 text-lg">По выбранным фильтрам товаров не найдено</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-brand mb-3">Будьте в курсе новинок</h2>
+            <p class="text-gray-500 mb-6">Подпишитесь на рассылку и получите скидку 10% на первый заказ</p>
+            <form class="max-w-md mx-auto flex gap-3" id="newsletterForm">
+                <input type="email" placeholder="Ваш email" class="flex-1 bg-white border-none rounded-md py-3 px-4 outline-none" required>
+                <button type="submit" class="bg-[#8A33FD] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#6f2fc7] transition">Подписаться</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-[#18181b] text-white py-16 relative overflow-hidden" style="background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 30px 30px;">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-12 relative z-10">
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Помощь</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="contacts.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Контакты</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Компания</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="about.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">О нас</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Инфо</h4>
+                <ul class="text-gray-400 space-y-3 text-sm">
+                    <li><a href="terms.html" class="hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">Условия пользования</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 tracking-wider relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-purple-500 after:to-pink-500">Контакты</h4>
+                <p class="text-gray-400 text-sm mb-3 italic underline decoration-purple-500/30">support@euphoria.ru</p>
+                <p class="text-gray-400 text-sm leading-relaxed">Москва, ул. Пушкина, дом 10, офис 404</p>
+                <div class="mt-8 flex space-x-4">
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">VK</span>
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-400 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">IG</span>
+                    <span class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center hover:scale-110 hover:bg-gradient-to-r hover:from-sky-500 hover:to-sky-300 cursor-pointer transition-all duration-300 border border-zinc-700 hover:border-transparent text-sm font-medium">TG</span>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 mt-16 pt-6 border-t border-zinc-800/50 text-center">
+            <p class="text-gray-600 text-xs tracking-[0.3em] uppercase bg-zinc-900/50 py-2 px-4 inline-block rounded-full backdrop-blur-sm">Copyright © 2024 Euphoria Clothing. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const WISHLIST_KEY = 'wishlist';
+            const CART_KEY = 'cart';
+            const LOGGED_IN_KEY = 'isLoggedIn';
+
+            function isAuthenticated() {
+                return localStorage.getItem(LOGGED_IN_KEY) === 'true';
+            }
+
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            }
+
+            let wishlist = isAuthenticated() ? JSON.parse(localStorage.getItem(WISHLIST_KEY)) || [] : [];
+            let cart = isAuthenticated() ? JSON.parse(localStorage.getItem(CART_KEY)) || [] : [];
+
+            function saveWishlist() {
+                if (isAuthenticated()) {
+                    localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+                }
+            }
+
+            function saveCart() {
+                if (isAuthenticated()) {
+                    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+                }
+            }
+            function attachWishlistHandlers() {
+                document.querySelectorAll('.wishlist-card').forEach(btn => {
+                    const card = btn.closest('.group');
+                    const id = card.dataset.id;
+                    const icon = btn.querySelector('i');
+                    const inWishlist = wishlist.some(item => item.id === id);
+                    icon.className = inWishlist ? 'fas fa-heart text-red-500' : 'far fa-heart text-gray-600';
+
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        if (!isAuthenticated()) {
+                            showNotification('Чтобы добавить в избранное, войдите в аккаунт');
+                            setTimeout(() => window.location.href = 'login.html', 1500);
+                            return;
+                        }
+
+                        const card = this.closest('.group');
+                        const id = card.dataset.id;
+                        const name = card.dataset.name;
+                        const price = parseInt(card.dataset.price);
+                        const image = card.dataset.img;
+                        const category = card.dataset.category || 'Одежда';
+                        const icon = this.querySelector('i');
+
+                        const existingIndex = wishlist.findIndex(item => item.id === id);
+                        if (existingIndex === -1) {
+                            wishlist.push({ id, title: name, price, image, category });
+                            icon.className = 'fas fa-heart text-red-500';
+                            showNotification(`Товар "${name}" добавлен в избранное`);
+                        } else {
+                            wishlist.splice(existingIndex, 1);
+                            icon.className = 'far fa-heart text-gray-600';
+                            showNotification(`Товар "${name}" удалён из избранного`);
+                        }
+                        saveWishlist();
+                    });
+                });
+            }
+            function attachCartHandlers() {
+                document.querySelectorAll('.add-to-cart').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        if (!isAuthenticated()) {
+                            showNotification('Чтобы добавить в корзину, войдите в аккаунт');
+                            setTimeout(() => window.location.href = 'login.html', 1500);
+                            return;
+                        }
+
+                        const card = this.closest('.group');
+                        const id = card.dataset.id;
+                        const name = card.dataset.name;
+                        const price = parseInt(card.dataset.price);
+                        const image = card.dataset.img;
+                        const category = card.dataset.category || 'Одежда';
+
+                        const existingIndex = cart.findIndex(item => item.id === id);
+                        if (existingIndex !== -1) {
+                            cart[existingIndex].quantity += 1;
+                            showNotification(`Количество товара "${name}" увеличено в корзине`);
+                        } else {
+                            cart.push({ id, title: name, price, image, category, quantity: 1 });
+                            showNotification(`Товар "${name}" добавлен в корзину`);
+                        }
+                        saveCart();
+                    });
+                });
+            }
+
+            const productGrid = document.getElementById('productGrid');
+            const products = Array.from(document.querySelectorAll('.product-card'));
+            const noProductsMessage = document.getElementById('noProductsMessage');
+
+            let sortType = 'popular'; 
+            let sortDirection = 'desc'; 
+
+            function filterProducts() {
+                const selectedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(cb => cb.value);
+               
+                const selectedSizes = Array.from(document.querySelectorAll('.size-checkbox:checked')).map(cb => cb.value);
+                
+                const selectedColors = Array.from(document.querySelectorAll('.color-checkbox:checked')).map(cb => cb.value);
+              
+                const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+                const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+                let visibleCount = 0;
+
+                products.forEach(card => {
+                    const category = card.dataset.category;
+                    const size = card.dataset.size;
+                    const color = card.dataset.color;
+                    const price = parseFloat(card.dataset.price);
+
+                    let categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+                    let sizeMatch = selectedSizes.length === 0 || selectedSizes.includes(size);
+                    let colorMatch = selectedColors.length === 0 || selectedColors.includes(color);
+                    let priceMatch = price >= minPrice && price <= maxPrice;
+
+                    if (categoryMatch && sizeMatch && colorMatch && priceMatch) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    noProductsMessage.classList.remove('hidden');
+                } else {
+                    noProductsMessage.classList.add('hidden');
+                }
+
+                sortProducts(sortType, false); 
+            }
+
+            function sortProducts(type = 'popular', updateButtons = true) {
+                if (type === 'price') {
+                    if (sortType === 'price') {
+                        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        sortDirection = 'asc';
+                    }
+                } else {
+                    sortDirection = 'desc'; 
+                }
+
+                const visibleProducts = products.filter(card => !card.classList.contains('hidden'));
+
+                visibleProducts.sort((a, b) => {
+                    if (type === 'popular') {
+                        return (parseInt(b.dataset.popularity) || 0) - (parseInt(a.dataset.popularity) || 0);
+                    } else if (type === 'price') {
+                        const priceA = parseFloat(a.dataset.price);
+                        const priceB = parseFloat(b.dataset.price);
+                        return sortDirection === 'asc' ? priceA - priceB : priceB - priceA;
+                    } else if (type === 'new') {
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    }
+                });
+
+                visibleProducts.forEach(card => productGrid.appendChild(card));
+
+                if (updateButtons) {
+                    sortType = type;
+                }
+            }
+
+            function resetFilters() {
+                document.querySelectorAll('.category-checkbox, .size-checkbox, .color-checkbox').forEach(cb => cb.checked = false);
+                document.getElementById('minPrice').value = 0;
+                document.getElementById('maxPrice').value = 50000;
+                filterProducts();
+            }
+
+            function syncQuickFilters() {
+                const quickCategory = document.getElementById('quickCategory');
+                const quickSize = document.getElementById('quickSize');
+                const quickColor = document.getElementById('quickColor');
+
+                quickCategory.addEventListener('change', function() {
+                    const val = this.value;
+                    document.querySelectorAll('.category-checkbox').forEach(cb => {
+                        cb.checked = cb.value === val;
+                    });
+                    filterProducts();
+                });
+
+                quickSize.addEventListener('change', function() {
+                    const val = this.value;
+                    document.querySelectorAll('.size-checkbox').forEach(cb => {
+                        cb.checked = cb.value === val;
+                    });
+                    filterProducts();
+                });
+
+                quickColor.addEventListener('change', function() {
+                    const val = this.value;
+                    document.querySelectorAll('.color-checkbox').forEach(cb => {
+                        cb.checked = cb.value === val;
+                    });
+                    filterProducts();
+                });
+            }
+
+            function init() {
+                attachWishlistHandlers();
+                attachCartHandlers();
+
+                document.querySelectorAll('.category-checkbox, .size-checkbox, .color-checkbox').forEach(cb => {
+                    cb.addEventListener('change', filterProducts);
+                });
+
+                document.getElementById('applyFiltersBtn').addEventListener('click', filterProducts);
+
+                document.getElementById('resetFiltersBtn').addEventListener('click', resetFilters);
+
+                document.getElementById('sortPopular').addEventListener('click', () => {
+                    sortProducts('popular');
+                    filterProducts();
+                });
+                document.getElementById('sortPrice').addEventListener('click', () => {
+                    sortProducts('price');
+                    filterProducts();
+                });
+                document.getElementById('sortNew').addEventListener('click', () => {
+                    sortProducts('new');
+                    filterProducts();
+                });
+
+                syncQuickFilters();
+
+                document.getElementById('searchInput')?.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        showNotification(`🔍 Поиск: "${e.target.value}"`);
+                    }
+                });
+
+                document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    showNotification('✅ Спасибо за подписку!');
+                    e.target.reset();
+                });
+
+                filterProducts();
+                sortProducts('popular');
+            }
+
+            init();
+        })();
+    </script>
+</body>
+</html>
